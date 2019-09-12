@@ -18,3 +18,5 @@
 
 # Project exclude paths
 /log/
+
+.idea
