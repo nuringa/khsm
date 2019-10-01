@@ -20,7 +20,3 @@ FactoryBot.define do
     answer4 {"#{rand(2001)}"}
   end
 end
-
-# PS: неплохой фильмец
-#
-# https://ru.wikipedia.org/wiki/Космическая_одиссея_2001_года
