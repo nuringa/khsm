@@ -24,8 +24,10 @@ RSpec.describe GameQuestion, type: :model do
       expect(game_question.text).to eq(game_question.question.text)
       expect(game_question.level).to eq(game_question.question.level)
     end
+  end
 
-    it 'returns correct .correct_answer_key' do
+  context '.correct_answer_key' do
+    it 'should equal b' do
       expect(game_question.correct_answer_key).to eq('b')
     end
   end
