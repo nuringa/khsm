@@ -1,26 +1,16 @@
-# (c) goodprogrammer.ru
-#
-# Основной игровой контроллер
-# Создает новую игру, обновляет статус игры по ответам юзера, выдает подсказки
 class GamesController < ApplicationController
   before_action :authenticate_user!
 
-  # Проверка нет ли у залогиненного юзера начатой игры
   before_action :goto_game_in_progress!, only: [:create]
 
-  # Загружаем игру из базы для текущего юзера
   before_action :set_game, except: [:create]
 
-  # Проверка — если игра завершена, отправляем юзера на его профиль, где он
-  # может увидеть статистику сыгранных игр.
   before_action :redirect_from_finished_game!, except: [:create]
 
   def show
     @game_question = @game.current_game_question
   end
 
-  # Действие create создает новую игру и отправляет на действие show (основной
-  # игровой экран) в случае успеха.
   def create
     begin
       # Создаем игру для залогиненного юзера
