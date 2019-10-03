@@ -2,9 +2,6 @@ class GameHelpGenerator
   # Сколько всего виртуальных зрителей в игре (в процентах получается)
   TOTAL_WATCHERS = 100
 
-  # Возвращает hash c массивом ключей keys и значениями — распределением в
-  # процентах. Ключ правильного ответа (correct_key), будет выбран с большим
-  # весом.
   def self.audience_distribution(keys, correct_key)
     result_array = []
 
