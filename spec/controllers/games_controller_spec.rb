@@ -2,11 +2,8 @@ require 'rails_helper'
 require 'support/my_spec_helper'
 
 RSpec.describe GamesController, type: :controller do
-  # обычный пользователь
   let(:user) { FactoryBot.create(:user) }
-  # админ
   let(:admin) { FactoryBot.create(:user, is_admin: true) }
-  # игра с прописанными игровыми вопросами
   let(:game_w_questions) { FactoryBot.create(:game_with_questions, user: user) }
 
   # группа тестов для незалогиненного юзера (Анонимус)
@@ -31,7 +28,7 @@ RSpec.describe GamesController, type: :controller do
     end
 
     it 'can not use #answer action' do
-      put :answer, params: {id: game_w_questions.id, letter: game_w_questions.current_game_question.correct_answer_key}
+      put :answer, params: { id: game_w_questions.id, letter: 'd' }
 
       expect(response.status).not_to eq 200
       expect(response).to redirect_to(new_user_session_path)
@@ -76,7 +73,7 @@ RSpec.describe GamesController, type: :controller do
     end
 
     it 'answers correct' do
-      put :answer, params: { id: game_w_questions.id, letter: game_w_questions.current_game_question.correct_answer_key }
+      put :answer, params: { id: game_w_questions.id, letter: 'd' }
       game = assigns(:game)
 
       expect(game.finished?).to be_falsey
