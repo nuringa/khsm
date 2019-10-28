@@ -3,7 +3,7 @@
 
 ### Description
 
-This is an implementation of the game famous worldwide
+This is an implementation of a famous game
 
 Language: *Russian*
 
