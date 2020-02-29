@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '~> 5.1.5'
 gem 'uglifier'
-gem 'puma', '~> 3.7'
+gem 'puma', '~> 3.12'
 gem 'pry'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'devise'
